@@ -5,7 +5,7 @@ pipeline {
         cluster = 'vproprod'
         service = 'vproappProdsvc'
     }
-
+    stages {
         stage('Deploy to prod ECS') {
             steps {
                 withAWS(credentials: 'awscredid', region: 'us-west-1') {
@@ -13,4 +13,5 @@ pipeline {
                 }
             }
         }
+    }
 }
